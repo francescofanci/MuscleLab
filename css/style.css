@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -362,4 +366,99 @@ footer {
     cursor: pointer;
 }
 
+/*--------------------------------------------------------*/
+/*calc.html*/
 
+.tdee-section {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #111;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tdee-description h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 700;
+}
+
+.tdee-description p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.tdee-calculator form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.tdee-calculator input,
+.tdee-calculator select {
+    padding: 12px 14px;
+    width: 280px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+.tdee-calculator input:focus,
+.tdee-calculator select:focus {
+    border-color: black;
+    outline: none;
+}
+
+.tdee-calculator button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tdee-calculator button:hover {
+    background-color: black;
+    transform: scale(1.03);
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 20px;
+    background-color: #f1f9ff;
+    border-left: 5px solid black;
+    border-radius: 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #333;
+    display: none;
+}
+
+.tdee-recommendations h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.tdee-recommendations ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+    text-align: left;
+}

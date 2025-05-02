@@ -102,3 +102,4 @@ document.getElementById("infoButton").addEventListener("click", function () {
 document.getElementById("closePopup").addEventListener("click", function () {
     document.getElementById("infoPopup").classList.add("hidden");
 });
+
