@@ -1,4 +1,4 @@
-/* Impostazioni globali */
+/* impostazioni globali */
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +14,18 @@ body {
     background-color: #f4f4f4;
     color: #333;
     overflow-x: hidden;
+    
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
@@ -53,6 +65,14 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+
+footer {
+    text-align: center;
+    padding: 2px;
+    background-color: #111;
+    color: white;
 }
 
 /* Hero Section */
@@ -234,14 +254,6 @@ nav ul li a {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2px;
-    background-color: #111;
-    color: white;
-}
-
 /* Link */
 .service-link {
     text-decoration: none;
@@ -293,9 +305,9 @@ footer {
 
 .image-container {
     display: flex;
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 90vh; /* Occupa tutta l'altezza della finestra */
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh; 
     position: relative;
     flex-direction: column;
 }
@@ -430,8 +442,7 @@ footer {
 }
 
 .tdee-calculator button:hover {
-    background-color: black;
-    transform: scale(1.03);
+    background-color: #444;
 }
 
 #result {
@@ -521,3 +532,86 @@ h1 {
 .save-btn:hover {
   color: #111;
 }
+
+/*-----------------------------------------*/
+/*gen.html*/
+
+.gen-body{
+    display: flex;
+    flex-direction: column;
+}
+
+main.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead {
+    background-color: #111;
+    color: white;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  main.container input[type="text"],
+  main.container input[type="number"] {
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #111;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #444;
+  }
+
+  .salva-scheda {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  #salva-btn-scheda {
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #salva-btn-scheda:hover {
+    background-color: #444;
+  }
+  

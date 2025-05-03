@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generatore Schede- MuscleLab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="gen-body">
+  <div class="page-wrapper">
+  <header class="main-header">
+        <div class="logo">
+            <a href="home.html"><img src="img/logo.png" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html#servizi">Servizi</a></li>
+                <li><a href="#">Chi Siamo</a></li>
+                <li><a href="#">Accedi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Genera la tua scheda di allenamento</h1>
+      
+        <table id="workout-table">
+          <thead>
+            <tr>
+              <th>Gruppo Muscolare</th>
+              <th>Esercizio</th>
+              <th>Serie</th>
+              <th>Ripetizioni</th>
+              <th>Rimuovi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" placeholder="Es. Petto"></td>
+              <td><input type="text" placeholder="Es. Panca piana"></td>
+              <td><input type="number" min="1" placeholder="3"></td>
+              <td><input type="number" min="1" placeholder="12"></td>
+              <td><button onclick="rimuoviRiga(this)">🗑️</button></td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <button onclick="aggiungiRiga()">Aggiungi esercizio</button>
+        <div class="salva-scheda">
+            <button id="salva-btn-scheda">Salva</button>
+        </div>
+      </main>
+  </div>
+
+
+  <footer>
+    <p>&copy; 2025 Muscle Lab - Tutti i diritti riservati</p>
+  </footer>
+
+  <script src="js/generator.js"></script>
+</body>
+</html>
