@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profilo Utente - MuscleLab</title>
+  <link rel="stylesheet" href="css/stylegruppi.css" />
+</head>
+<body class="user-body">
+  <div class="navbar">
+    <div class="logo"><a href="home.html">MuscleLab</a></div>
+  </div>
+
+  <div class="profile-container">
+    <h1>Benvenuto, <span id="user-username"></span></h1>
+    <p><strong>Nome:</strong> <span id="user-name"></span></p>
+    <p><strong>Cognome:</strong> <span id="user-surname"></span></p>
+    <p><strong>Email:</strong> <span id="user-email"></span></p>
+    <p><strong>Data di nascita:</strong> <span id="user-birthdate"></span></p>
+
+    <h2>Workout salvati</h2>
+    <ul id="saved-workouts">
+      <!-- Popolati via JS -->
+    </ul>
+
+    <h2>Schede generate</h2>
+    <ul id="generated-plans">
+      <!-- Popolati via JS -->
+    </ul>
+  </div>
+
+  <section id="logout-section">
+  <button id="logout-button">Esci dall'account</button>
+  </section>
+
+
+
+  <script src="js/user.js"></script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+/* impostazioni globali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.hero header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background: transparent;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.hero .logo a {
+    display: inline-block;
+}
+
+.hero .logo img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+footer {
+    text-align: center;
+    padding: 2px;
+    background-color: #111;
+    color: white;
+    user-select: none;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-image: url('../img/sfondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.scroll-down span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+    margin: 0 auto;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(45deg);
+    }
+    40% {
+        transform: translateX(-50%) translateY(10px) rotate(45deg);
+    }
+    60% {
+        transform: translateX(-50%) translateY(5px) rotate(45deg);
+    }
+}
+
+/* Sezioni Intro */
+.intro-section {
+    position: relative;
+    background-image: url('../img/sfondo2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+}
+
+.intro-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.intro-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.intro-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+/* Seconda intro con sfondo diverso */
+.second-intro {
+    background-image: url('../img/sfondo3.jpg');
+}
+
+.second-intro .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.service-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 320px;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.box-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.service-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.service-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* link */
+.service-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/*-----------------------------------------------------------*/
+/*diz.html*/
+
+.main-header {
+    width: 100%;
+    padding: 15px 50px;
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+.main-header .logo img {
+    height: 50px;
+    width: auto;
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-header nav ul li {
+    margin: 0 15px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Centro */
+.image-toggle-section {
+    text-align: center;
+    padding: 20px 20px;
+    background-color: #fff;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh; 
+    position: relative;
+    flex-direction: column;
+}
+
+
+.image-container svg {
+    max-width: 100%;
+    max-height: 90vh;
+    display: block;
+}
+
+.button-container{
+    text-align: center;
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.button-container button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.image-container button:hover {
+    background-color: #444;
+}
+
+
+/* popup nascosto */
+#infoPopup.hidden {
+    display: none;
+}
+
+/* stile popup */
+#infoPopup {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid #ccc;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* chiudi */
+#infoPopup #closePopup {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* bottone info */
+#infoButton {
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/*--------------------------------------------------------*/
+/*calc.html*/
+
+.tdee-section {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #111;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tdee-description h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 700;
+    user-select: none;
+}
+
+.tdee-description p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    color: #555;
+    user-select: none;
+}
+
+.tdee-calculator form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    user-select: none;
+}
+
+.tdee-calculator input,
+.tdee-calculator select {
+    padding: 12px 14px;
+    width: 280px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+.tdee-calculator input:focus,
+.tdee-calculator select:focus {
+    border-color: black;
+    outline: none;
+}
+
+.tdee-calculator button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tdee-calculator button:hover {
+    background-color: #444;
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 20px;
+    background-color: #f1f9ff;
+    border-left: 5px solid black;
+    border-radius: 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #333;
+    display: none;
+}
+
+.tdee-recommendations h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.tdee-recommendations ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+    text-align: left;
+}
+
+/*-----------------------------------------*/
+/*challenge.html*/
+
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  user-select: none;
+}
+
+.workout {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  user-select: none;
+}
+
+.workout:hover {
+  background: #f0f0f0;
+}
+
+.workout h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.details {
+  display: none;
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  color: #333;
+}
+
+.save-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.save-btn:hover {
+  color: #111;
+}
+
+/*-----------------------------------------*/
+/*gen.html*/
+
+.gen-body{
+    display: flex;
+    flex-direction: column;
+}
+
+main.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+  
+  thead {
+    background-color: #111;
+    color: white;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  main.container input[type="text"],
+  main.container input[type="number"] {
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .input-nome-scheda {
+  margin-bottom: 20px;
+}
+
+.input-nome-scheda label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#nome-scheda {
+  padding: 8px;
+  font-size: 0.9rem;
+  width: 60%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+  
+  button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #111;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #444;
+  }
+
+  .salva-scheda {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  #salva-btn-scheda {
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #salva-btn-scheda:hover {
+    background-color: #444;
+  }
+  
