@@ -203,7 +203,7 @@ body {
 
 .login-image {
     flex: 1;
-    background: url('../img/foto-login.jpg') center center / cover no-repeat;
+    background: url('../img/foto_login.jpg') center center / cover no-repeat;
 }
 
 /*--------------------------*/
