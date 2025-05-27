@@ -30,27 +30,28 @@
         <label for="nome-scheda">Nome della scheda:</label>
         <input type="text" id="nome-scheda" placeholder="Es. Scheda forza petto" />
         </div>
-
-        <table id="workout-table">
-          <thead>
-            <tr>
-              <th>Gruppo Muscolare</th>
-              <th>Esercizio</th>
-              <th>Serie</th>
-              <th>Ripetizioni</th>
-              <th>Rimuovi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="text" placeholder="Es. Petto"></td>
-              <td><input type="text" placeholder="Es. Panca piana"></td>
-              <td><input type="number" min="1" placeholder="3"></td>
-              <td><input type="number" min="1" placeholder="12"></td>
-              <td><button onclick="rimuoviRiga(this)">🗑️</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table id="workout-table">
+            <thead>
+              <tr>
+                <th>Gruppo Muscolare</th>
+                <th>Esercizio</th>
+                <th>Serie</th>
+                <th>Ripetizioni</th>
+                <th>Rimuovi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" placeholder="Es. Petto"></td>
+                <td><input type="text" placeholder="Es. Panca piana"></td>
+                <td><input type="number" min="1" placeholder="3"></td>
+                <td><input type="number" min="1" placeholder="12"></td>
+                <td><button onclick="rimuoviRiga(this)">🗑️</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       
         <button onclick="aggiungiRiga()">Aggiungi esercizio</button>
         <div class="salva-scheda">
