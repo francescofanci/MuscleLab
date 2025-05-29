@@ -26,7 +26,7 @@ const client = new Client({
   user: 'postgres',
   host: 'localhost',
   database: 'MuscleLab DB',
-  password: '1234',
+  password: 'fran',
   port: 5432
 })
 client.connect()
@@ -283,6 +283,59 @@ app.delete('/api/scheda/:id', async (req, res) => {
   }
 });
 
+
+//restituisci palestre in base al filtro
+app.post('/api/filtra-palestre', async (req, res) => {
+  //estrai filtri
+  const { tipi, prezzo, servizi, orari } = req.body;
+
+  try {
+    //query base
+    let query = 'SELECT * FROM palestre WHERE 1=1';
+
+    //array parametri da passare alla query
+    const params = [];
+
+    let paramIndex = 1;
+
+    
+    if (tipi && tipi.length > 0) {
+      query += ` AND tipo @> $${paramIndex}`;
+      params.push(JSON.stringify(tipi));
+      paramIndex++;
+    }
+
+
+    if (prezzo && prezzo !== 'Qualsiasi') {
+      query += ` AND prezzo = $${paramIndex}`;
+      params.push(prezzo);
+      paramIndex++;
+    }
+
+
+    if (servizi && servizi.length > 0) {
+      query += ` AND servizi @> $${paramIndex}`;
+      params.push(JSON.stringify(servizi));
+      paramIndex++;
+    }
+
+    
+    if (orari && orari.length > 0) {
+      query += ` AND orari @> $${paramIndex}`;
+      params.push(JSON.stringify(orari));
+      paramIndex++;
+    }
+
+    //esegui query
+    const result = await client.query(query, params);
+
+    //invia al client
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Errore nel filtraggio palestre:', err);
+    res.status(500).json({ error: 'Errore nel filtraggio palestre' });
+  }
+});
 
 
 

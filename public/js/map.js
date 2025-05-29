@@ -1,29 +1,104 @@
-// Inizializza la mappa centrata su una città (es. Roma)
-const map = L.map('map').setView([41.9028, 12.4964], 12);
+document.addEventListener('DOMContentLoaded', function () {
 
-// Aggiunge la mappa di base da OpenStreetMap
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    //centra su roma
+    const map = L.map('map').setView([41.9028, 12.4964], 13);
 
-// Aggiungi marker di esempio
-const palestre = [
-    {
-        nome: "Palestra Roma Center",
-        lat: 41.9022,
-        lng: 12.5000,
-        indirizzo: "Via Esempio 123, Roma"
-    },
-    {
-        nome: "FitZone Trastevere",
-        lat: 41.8882,
-        lng: 12.4700,
-        indirizzo: "Viale Trastevere 55, Roma"
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    //array per marker visibili
+    let markers = [];
+
+    //aggiornare visibilità marker in base allo zoom attuale
+    function updateMarkersVisibility() {
+        const zoomLevel = map.getZoom();
+
+        markers.forEach(({ marker }) => {
+            if (zoomLevel >= 13) {
+                if (!map.hasLayer(marker)) {
+                    marker.addTo(map);
+                }
+            } else {
+                if (map.hasLayer(marker)) {
+                    map.removeLayer(marker);
+                }
+            }
+        });
     }
-];
 
-palestre.forEach(palestra => {
-    L.marker([palestra.lat, palestra.lng])
-        .addTo(map)
-        .bindPopup(`<b>${palestra.nome}</b><br>${palestra.indirizzo}`);
+    //rimuovi i marker dalla mappa
+    function clearMarkers() {
+        markers.forEach(({ marker }) => map.removeLayer(marker));
+        markers = [];
+    }
+
+    //aggiungi marker sulla mappa
+    function addMarkers(palestre) {
+        clearMarkers();
+
+        palestre.forEach(palestra => {
+            //crea marker con info
+            const marker = L.marker([palestra.latitudine, palestra.longitudine])
+                .bindPopup(`
+                    <h4><strong>${palestra.nome}</strong></h4>
+                    <p>${palestra.indirizzo}</p>
+                    <p><b>Tipo:</b> ${palestra.tipo}</p>
+                    <p><b>Servizi:</b> ${palestra.servizi}</p>
+                    <p><b>Orari:</b> ${palestra.orari}</p>
+                    <p><b>Prezzo:</b> ${palestra.prezzo}</p>
+                `);
+
+            //aggiungi marker all’array
+            markers.push({
+                marker,
+                latitudine: palestra.latitudine,
+                longitudine: palestra.longitudine
+            });
+        });
+
+        updateMarkersVisibility();
+    }
+
+    //carica tutte le palestre
+    fetch('/api/filtra-palestre', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}) //nessun filtro
+    })
+        .then(response => response.json())
+        .then(addMarkers)
+        .catch(error => console.error('Errore nel caricamento iniziale:', error));
+
+
+    document.getElementById('cerca').addEventListener('click', function () {
+
+        const tipi = Array.from(document.querySelectorAll('input[name="tipo"]:checked')).map(el => el.value);
+        const prezzo = document.getElementById('prezzo').value;
+        const servizi = Array.from(document.querySelectorAll('input[name="servizi"]:checked')).map(el => el.value);
+        const orari = Array.from(document.querySelectorAll('input[name="orari"]:checked')).map(el => el.value);
+
+        //invia dati filtri al server
+        fetch('/api/filtra-palestre', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tipi: tipi,
+                prezzo: prezzo,
+                servizi: servizi,
+                orari: orari
+            })
+        })
+            .then(response => response.json())
+            .then(addMarkers)
+            .catch(error => console.error('Errore durante il filtraggio:', error));
+    });
+
+    map.on('zoomend', updateMarkersVisibility);
+
+    updateMarkersVisibility();
 });

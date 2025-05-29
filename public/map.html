@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="icon" href="img/favicon.png" type="image/png">
-
 </head>
 <body>
     <header class="main-header">
@@ -23,13 +22,51 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Trova la tua palestra</h1>
+    <main class="trova-palestra">
+        <div class="filtri">
+            <h2>Filtra le palestre</h2>
+
+            <p><strong>Tipi di palestra:</strong></p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="tipo" value="crossfit"> CrossFit</label><br>
+                <label><input type="checkbox" name="tipo" value="bodybuilding"> Bodybuilding</label><br>
+                <label><input type="checkbox" name="tipo" value="calisthenics"> Calisthenics</label><br>
+                <label><input type="checkbox" name="tipo" value="functional"> Functional</label><br>
+            </div>
+
+            <p><strong>Fascia di prezzo:</strong></p>
+            <select id="prezzo">
+                <option value="Qualsiasi" selected>Qualsiasi</option>
+                <option value="basso">Basso</option>
+                <option value="medio">Medio</option>
+                <option value="alto">Alto</option>
+            </select>
+
+            <p><strong>Servizi disponibili:</strong></p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="servizi" value="sauna"> Sauna</label><br>
+                <label><input type="checkbox" name="servizi" value="piscina"> Piscina</label><br>
+                <label><input type="checkbox" name="servizi" value="spa"> Spa</label><br>
+            </div>
+
+            <p><strong>Orari di apertura:</strong></p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="orari" value="mattina"> Mattina</label><br>
+                <label><input type="checkbox" name="orari" value="pomeriggio"> Pomeriggio</label><br>
+                <label><input type="checkbox" name="orari" value="sera"> Sera</label><br>
+                <label><input type="checkbox" name="orari" value="weekend"> Weekend</label><br>
+            </div>
+
+            <button id="cerca">Cerca</button>
+        </div>
+
         <div id="map"></div>
     </main>
+
     <footer>
         <p>&copy; 2025 Muscle Lab - Tutti i diritti riservati</p>
     </footer>
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="js/map.js"></script>
 </body>
