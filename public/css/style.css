@@ -368,8 +368,10 @@ footer {
 
 /* chiudi */
 #infoPopup #closePopup {
-    float: right;
-    font-size: 20px;
+    position: fixed;
+    top: 10%;
+    left: 90%;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -730,4 +732,33 @@ main.container input[type="number"] {
 .filtri p {
     margin-top: 25px;
     margin-bottom: 20px;
+}
+
+/* Layout responsivo per smartphone */
+@media screen and (max-width: 768px) {
+    .trova-palestra {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #map {
+        width: 100%;
+        height: 50vh; /* la mappa occupa metà schermo verticalmente */
+        margin-bottom: 20px;
+    }
+
+    .filtri {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+
+    .filtri button {
+        font-size: 1rem;
+    }
+
+    .checkbox-group label {
+        font-size: 0.95rem;
+    }
 }

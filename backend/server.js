@@ -25,8 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
-  database: 'MuscleLab DB',
-  password: 'fran',
+  database: 'MuscleLab',
+  password: '1234',
   port: 5432
 })
 client.connect()
@@ -64,7 +64,7 @@ app.post('/register', async (req, res) => {
 
     res.send('Registrazione avvenuta con successo!');
   } catch (err) {
-    console.error('Errore registrazione:', err);
+    console.error('✖ ERRORE REGISTRAZIONE CATTURATO:', err.message, err.stack);
     res.status(500).send('Errore nella registrazione.');
   }
 });

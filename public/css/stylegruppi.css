@@ -130,7 +130,7 @@ body {
     padding: 40px;
     box-sizing: border-box;
     overflow-y: auto;
-    height: 100vh;
+    height: 101vh;
 }
 
 .login-form-container h1 {
@@ -205,6 +205,35 @@ body {
     flex: 1;
     background: url('../img/foto_login.jpg') center center / cover no-repeat;
 }
+
+@media screen and (max-width: 768px) {
+    .login-image {
+        display: none;
+    }
+
+    .login-form-container {
+        width: 100%;
+        padding: 20px;
+        height: auto;
+    }
+
+    .login-form-container form input,
+    .login-form-container form button {
+        width: 100%;
+    }
+
+    .login-form-container label {
+        margin-left: 0;
+        align-self: stretch;
+    }
+
+    .login-form-container h1 {
+        margin-top: 200px;
+        font-size: 1.6rem;
+    }
+}
+
+
 
 /*--------------------------*/
 /*user.html*/
