@@ -25,8 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
-  database: 'MuscleLab',
-  password: '1234',
+  database: 'MuscleLab DB',
+  password: 'fran',
   port: 5432
 })
 client.connect()
